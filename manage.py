@@ -1,22 +1,32 @@
-#!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
+import time
+import datetime
 import os
-import sys
+from tkinter import *
+import random
 
 
-def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Panreda.settings')
-    try:
-        from django.core.management import execute_from_command_line
-    except ImportError as exc:
-        raise ImportError(
-            "Couldn't import Django. Are you sure it's installed and "
-            "available on your PYTHONPATH environment variable? Did you "
-            "forget to activate a virtual environment?"
-        ) from exc
-    execute_from_command_line(sys.argv)
+window=Tk()
+window.geometry("800x600")
+window.title("Helllooo Beauty")
+window.config(background="white")
+
+tek=1
+
+def saveMe():
+    global tek
+    if tek==1:
+        ss = ["Mark", "Amber", "Todd", "Anita", "Sandy","Alper","Tektaş","Hulusi","Desa","Guldan"]
+        a=random.randint(0, 9)
+        btn1.config(text=ss[a])
+        btn1.after(100,saveMe)
+        tek=0
+    elif tek==0:
+        tek=1
+        pass
 
 
-if __name__ == '__main__':
-    main()
+
+btn1=Button(window ,text="LoLa",command=saveMe,foreground="purple")
+btn1.pack(padx=10,pady=10)
+
+window.mainloop()
