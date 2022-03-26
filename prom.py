@@ -31,5 +31,24 @@ nonebook.add(tab4,text="aqua")
 nonebook.add(tab5,text="Yavruağzı")
 
 
+buton=Button(tab1,text="LaLa Paşa")
+buton.pack(padx=15,pady=15)
+
+buton2=Button(tab2,text="DaDa Paşa")
+buton2.pack(padx=15,pady=15)
+
+
+buton3=Button(tab3,text="Tosun Paşa")
+buton3.pack(padx=15,pady=15)
+
+buton4=Button(tab4,text="Sunrise")
+buton4.pack(padx=15,pady=15)
+
+buton5=Button(tab4,text="Sunset")
+buton5.pack(padx=15,pady=15)
+
+label=Label(tab4,text="LALA PAŞA")
+label.pack()
+
 
 window.mainloop()
