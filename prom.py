@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 
+def closeWindow():
+    window.destroy()
 
 window=Tk()
 window.geometry("500x500")
@@ -31,7 +33,7 @@ nonebook.add(tab4,text="aqua")
 nonebook.add(tab5,text="Yavruağzı")
 
 
-buton=Button(tab1,text="LaLa Paşa")
+buton=Button(tab1,text="LaLa Paşa",command=closeWindow)
 buton.pack(padx=15,pady=15)
 
 buton2=Button(tab2,text="DaDa Paşa")
