@@ -19,7 +19,7 @@ window.geometry("800x600")
 window.title("Helllooo Beauty")
 window.config(background="white")
 
-buton=Button(window,command=arti,width=140,height=70,bitmap='button2.png',borderwidth=0,text=arttir)
+buton=Button(window,command=arti,width=12,height=2,borderwidth=0,text=arttir)
 buton.pack(padx=15,pady=15)
 
 buton1=Button(window,command=closeWindow,text="LaLa Paşa",width=10,padx=15,pady=15,borderwidth=0)
