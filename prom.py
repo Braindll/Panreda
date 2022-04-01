@@ -1,56 +1,42 @@
 from tkinter import *
 from tkinter import ttk
+import threading
+from os import system
+from time import sleep
+system("clear")
+osk=0
+def kapa():
+    root.destroy()
 
-def closeWindow():
-    window.destroy()
+def artti():
+    global osk
+    osk+=1
 
-window=Tk()
-window.geometry("500x500")
+def updatew():
+    bot2.config(text=osk)
+    bot2.after(1,updatew)
 
-
-nonebook=ttk.Notebook(window)
-nonebook.pack()
-
-
-tab1=Frame(nonebook,width=500,height=500,background="pink")
-tab2=Frame(nonebook,width=500,height=500,background="purple")
-tab3=Frame(nonebook,width=500,height=500,background="magenta")
-tab4=Frame(nonebook,width=500,height=500,background="aqua")
-tab5=Frame(nonebook,width=500,height=500,background="#FFA17F")
-
-
-tab1.pack(fill="both",expand=1)
-tab2.pack(fill="both",expand=1)
-tab3.pack(fill="both",expand=1)
-tab4.pack(fill="both",expand=1)
-tab5.pack(fill="both",expand=1)
+def bekle():
+    print("bekleme")
+    sleep(5)
+    print("bitti")
+def thre():
+    threading.Thread(target=bekle).start()
 
 
-nonebook.add(tab1,text="pink")
-nonebook.add(tab2,text="purple")
-nonebook.add(tab3,text="magenta")
-nonebook.add(tab4,text="aqua")
-nonebook.add(tab5,text="Yavruağzı")
+root=Tk()
+root.geometry("500x500")
+root.title("Hello Threat")
 
+bot=Button(root,text="kapa",command=kapa)
+bot.pack()
 
-buton=Button(tab1,text="LaLa Paşa",command=closeWindow)
-buton.pack(padx=15,pady=15)
+bot2=Button(root,text=osk,command=artti)
+bot2.pack()
 
-buton2=Button(tab2,text="DaDa Paşa")
-buton2.pack(padx=15,pady=15)
+bot3=Button(root,text="Bekle",command=thre)
+bot3.pack()
 
+threading.Thread(target=updatew).start()
+mainloop()
 
-buton3=Button(tab3,text="Tosun Paşa")
-buton3.pack(padx=15,pady=15)
-
-buton4=Button(tab4,text="Sunrise")
-buton4.pack(padx=15,pady=15)
-
-buton5=Button(tab4,text="Sunset")
-buton5.pack(padx=15,pady=15)
-
-label=Label(tab4,text="LALA PAŞA")
-label.pack()
-
-
-window.mainloop()

@@ -26,5 +26,3 @@ buton1=Button(window,command=closeWindow,text="LaLa Paşa",width=10,padx=15,pady
 buton1.pack(padx=15,pady=15)
 
 window.mainloop()
-    
-    

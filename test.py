@@ -1,33 +1,42 @@
-import serial
+import datetime
 from tkinter import *
-import tkinter as tk 
-import serial.tools.list_ports
+from time import *
 
-ports=list(serial.tools.list_ports.comports())
-for item in ports:
-    print(item)
-     
-commPort = '/dev/cu.WI-XB400'
-ser = serial.Serial(commPort, baudrate = 9600, timeout = 1)
 
-def turnOnLED():
-    ser.write(b'o')
-    print("On")
 
-def turnOffLED(): 
-    ser.write(b'x')
-    print("Off")
 
-# creating tkinter window 
-root = Tk() 
-root.title('Blink GUI')
+now = datetime.datetime.now()
+target = datetime.datetime(2022, 6,17)
+tar=target-now
+ayla=Tk()
+ayla.geometry("800x600")
+ayla.title("Şafak Emeklilik")
+ayla.config(background="pink")
 
-btn_On= tk.Button(root, text="Turn On", command=turnOnLED)
-btn_On.grid(row=0, column=0)
 
-btn_Off = tk.Button(root, text="Turn Off", command=turnOffLED)
-btn_Off.grid(row=0, column=1)
 
-root.geometry("350x350")
-root.mainloop()
+def kalan():
+    now = datetime.datetime.today().replace(microsecond=0)
+    target = datetime.datetime(2022, 6,17)
+    sonuc=str(target-now)
+    sonuc = sonuc.replace("days", "Gün")
+    ex.config(text=sonuc)
+    ex.after(100,kalan)
+
+def kalan2():
+    suan=int(time())
+    hedef=1655413253
+    kalanson=str(round(((hedef-suan)/60)))+" Dakika Kaldı"
+    saat.config(text=kalanson)
+    saat.after(100,kalan2)
+    
+
+ex=Label(ayla,text=tar,font="calibri 100",foreground="purple",background="pink")
+ex.pack(pady=100)
+saat=Label(ayla,text="saat",font="calibri 50",foreground="purple",background="pink")
+saat.pack()
+kalan()
+kalan2()
+ayla.mainloop()
+
 
