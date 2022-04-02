@@ -2,6 +2,4 @@ import time
 import locale
 
 
-
-
-help(time)
+print(time.time_ns())
