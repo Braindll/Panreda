@@ -1,5 +1,4 @@
-import time
-import locale
-
-
-print(time.time_ns())
+import django
+import os
+os.system("clear")
+print(django.get_version())
