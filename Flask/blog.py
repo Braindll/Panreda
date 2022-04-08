@@ -1,16 +1,7 @@
 from flask import Flask,render_template, request
-from mysql import *
- 
-app = Flask(__name__)
- 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Desa6672'
-app.config['MYSQL_DB'] = 'flask'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
- 
-#mysql = MySQL(app)
+app = Flask(__name__)
+
 
 @app.route("/")
 def index():
@@ -23,11 +14,6 @@ def index():
 @app.route("/about")
 def about():
     return "<h1>Abouta geldin lan</h1>"
-
-
-
-
-
 
 
 
