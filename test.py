@@ -1,6 +1,8 @@
 import datetime
 from tkinter import *
 from time import *
+from os import system
+
 
 now = datetime.datetime.now()
 target = datetime.datetime(2022, 6,17)
