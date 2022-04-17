@@ -1,19 +1,16 @@
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
+import paho.mqtt.client as mqtt
+from random import randrange, uniform
+import time
 from os import system
-
 system("clear")
-cred = credentials.Certificate("key.json")
-firebase_admin.initialize_app(cred)
 
-db=firestore.client()
+mqttbroker='broker.hivemq.com'
+client=mqtt.Client("Temperature_Inside")
+client.connect(mqttbroker,port=1883)
 
-
-#data={'surname':'Shadow'}
-#db.collection('person').document('Desa').set(data,merge=True)
-
-result=db.collection('person').where("name","==","Desa").get()
-
-for i in result:
-    print("Name:",i.to_dict()["name"],"Surname:",i.to_dict()["surname"],"Age:",i.to_dict()["Age"])
+while True:
+    RandNum=uniform(12.0, 21.9)
+    RandNum=round(RandNum,2)
+    client.publish("Temperlicam",RandNum)
+    print(".",RandNum)
+    time.sleep(2)
